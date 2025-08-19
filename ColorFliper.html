@@ -1,0 +1,56 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+    #head{
+        font-size: larger;
+    }
+    #color{
+        float:right
+        
+    }
+    #btn{
+        
+        border:1px solid black;
+        background-color: rgb(219, 54, 54);
+    color:white;
+    border-radius: 15px;
+    padding: 20px 80px;
+    font-size: 28px;
+    letter-spacing: 5px;
+    cursor:pointer;
+    }
+    #warp{
+        display: flex;
+    justify-content: center; /* centers horizontally */
+    align-items: center;      /* centers vertically if you give wrap a height */
+    height: 100vh; 
+    }
+    </style>
+</head>
+<body>
+    <strong id="head">Color flipper</strong>
+    <span id ="color">#------</span>
+    <div id="warp">
+        <button id="btn"> click me</button>
+    </div>
+    <script>
+        let warp1=document.getElementById("warp");
+        let color1=document.getElementById("color");
+        let btn1=document.getElementById("btn");
+        let mul=[0,1,2,3,4,5,6,7,8,9,'A', 'B', 'C', 'D', 'E', 'F'];
+        btn1.addEventListener("click",cbg)
+        function cbg() {
+            let hex="#";
+            for(let i=1;i<=6;++i){
+                hex+=mul[Math.floor(Math.random()*16)]
+            }
+            warp1.style.backgroundColor=hex;
+            color1.innerText=hex
+            
+        }
+    </script>
+</body>
+</html>
