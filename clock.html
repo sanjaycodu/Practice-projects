@@ -1,0 +1,56 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    body{
+        background: linear-gradient(90deg, #ff7e5f, #fe7bdd);
+    }
+    #container{
+         gap: 8px;
+        border: solid white;
+        font-size: 5rem;
+        display: flex;
+  justify-content: center;  /* horizontal */
+   align-items: center;      /* vertical */
+  height: 100vh; 
+    }
+</style>
+<body>
+    <div id="container">
+<span id="hr"> 00</span>
+<span > :</span>
+<span id="min"> 00</span>
+<span > :</span>
+<span id="sec"> 00</span>
+<span id="ampm"> ampm</span>
+    </div>
+   <script>
+    let hr = document.getElementById("hr");
+    let min = document.getElementById("min");
+    let sec = document.getElementById("sec");
+    let ampm = document.getElementById("ampm");
+
+    setInterval(display, 1000);
+
+    function display() {
+        let time = new Date();
+        let hours = time.getHours();
+        let minutes = time.getMinutes();
+        let seconds = time.getSeconds();
+
+        let session = hours >= 12 ? "PM" : "AM";
+
+        // Convert to 12-hour format
+        hours = hours % 12;
+        hours = hours ? hours : 12; // 0 should be 12
+        hr.innerText = String(hours).padStart(2, '0');
+        min.innerText = String(minutes).padStart(2, '0');
+        sec.innerText = String(seconds).padStart(2, '0');
+        ampm.innerText = session;
+    }
+</script>
+</body>
+</html>
