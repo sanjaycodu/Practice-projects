@@ -1,0 +1,98 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    #q2,#q3,#res{
+        display: none;
+    }
+</style>
+<body>
+    <div id="q1">
+    <p >what is the color of apple</p>
+    red<input type="radio" name="q1" value="1" onchange="calMark(this)">
+    blue<input type="radio" name="q1" value="0" onchange="calMark(this)">
+    green<input type="radio" name="q1" value="0" onchange="calMark(this)">
+    </div>
+        <div id="q2">
+            <p>who is Bot player</p>
+            Venku<input type="radio" name="q2" value="1" onchange="calMark(this)">
+            Mani<input type="radio" name="q2" value="1" onchange="calMark(this)">
+            Durai<input type="radio" name="q2" value="1" onchange="calMark(this)">
+        </div>
+        <div id="q3">
+            <p>what is 5+5</p>
+            1<input type="radio" name="q3" value="0" onchange="calMark(this)">
+            2<input type="radio" name="q3" value="0" onchange="calMark(this)">
+            10<input type="radio" name="q3" value="1" onchange="calMark(this)">
+        </div>
+        <button id="bck" onclick="back()">Back</button> 
+        <button id="nxt" onclick="next()">Next</button> 
+        <button id="sbt" onclick="submit()">submit</button> 
+        <b></b>
+            <p id="res">Your Mark is </p>
+    <script>
+        let bot="";
+        function calMark(e){
+            mark+=parseInt(e.value);
+            if(e.name==="q2"){
+                bot=e.previousSibling.textContent.trim();
+
+            }
+        }
+        let q1=document.getElementById("q1");        
+        let q2=document.getElementById("q2");        
+        let q3=document.getElementById("q3");        
+        let bck=document.getElementById("bck");        
+        let pg=1;
+        let mark=0;
+        function BasedOnNumber(){
+            if(pg==1){
+                q1.style.display="block";
+                q2.style.display="none";
+                q3.style.display="none";
+            }else if(pg==2){
+                q1.style.display="none";
+                q2.style.display="block";
+                q3.style.display="none";
+                
+            }else{
+                q1.style.display="none";
+                q2.style.display="none";
+                q3.style.display="block";
+            }
+        }
+        function next(){
+            ++pg;
+            BasedOnNumber();
+            if(pg==3){
+                document.getElementById("nxt").disabled=true;
+                document.getElementById("sbt").disabled=false;
+                document.getElementById("bck").disabled=false;
+                return;
+            }
+        }
+        function back(){
+            pg--;
+            BasedOnNumber();
+            if(pg==1){
+                document.getElementById("nxt").disabled=false;
+                document.getElementById("bck").disabled=true;
+                return;
+            }if (pg==2) {
+                 document.getElementById("nxt").disabled=false;
+                document.getElementById("bck").disabled=false;
+            } 
+        }
+        function submit() {
+            sbt.style.display="none";
+            document.getElementById("res").innerText="your marks are "+mark+"/3 \n The Bot player is: "+bot;
+            res.style.display="block";
+            //alert("bye bye")
+            console.log("hai");
+        }
+    </script>
+</body>
+</html>
