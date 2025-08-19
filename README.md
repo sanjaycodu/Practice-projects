@@ -1,2 +1,10 @@
-# Practice-projects
-A collection of my mini projects built with JavaScript, React, and Spring Boot for practice and learning.
+
+# Practice Projects Repository
+
+This repo contains my mini projects built for practicing core concepts in **JavaScript, HTML, CSS, React, and Java**.  
+Each project focuses on strengthening problem-solving and frontend/backend skills.  
+ 
+## Tech Stack
+- Spring Boot & MySQL (future full-stack projects)
+- HTML, CSS, JavaScript  
+- React.js (future projects)  
